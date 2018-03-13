@@ -1,0 +1,76 @@
+# config context path to "/" by setting an empty string
+server:
+  servlet:
+    contextPath:
+
+# JACKSON
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+
+#logging:
+#  level:
+#    org.springframework:
+#      security: DEBUG
+
+spring:
+  profiles: demo
+
+  h2:
+    console:
+      enabled: true
+      "path": "/console"
+
+  datasource:
+    platform: "h2"
+
+  jpa:
+    show-sql: "false"
+
+---
+
+spring:
+  profiles: dev
+
+  #database connection configurations
+  datasource:
+    url: "jdbc:postgresql://localhost/savemythings"
+    username: "postgres"
+    password: "postgres"
+    driver-class-name: "org.postgresql.Driver"
+
+  #hibernate configurations
+  jpa:
+    hibernate:
+      ddl-auto: "validate"
+    database-platform: "org.hibernate.dialect.PostgreSQLDialect"
+    show-sql: "false"
+
+---
+
+spring:
+  profiles: prod
+
+  #database connection configurations
+  datasource:
+    url: "jdbc:postgresql://localhost/savemythings"
+    username: "postgres"
+    password: "postgres"
+    driver-class-name: "org.postgresql.Driver"
+
+    #hibernate configurations
+  jpa:
+    hibernate:
+      ddl-auto: "validate"
+    database-platform: "org.hibernate.dialect.PostgreSQLDialect"
+    show-sql: "false"
