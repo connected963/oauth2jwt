@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
@@ -15,13 +16,12 @@ import java.security.KeyPair;
 @Configuration
 public class JwtConfig {
 
-    @Autowired
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
-//    @Autowired
-//    public JwtConfig(JwtAccessTokenConverter jwtAccessTokenConverter) {
-//        this.jwtAccessTokenConverter = jwtAccessTokenConverter;
-//    }
+    @Autowired
+    public JwtConfig(@Lazy JwtAccessTokenConverter jwtAccessTokenConverter) {
+        this.jwtAccessTokenConverter = jwtAccessTokenConverter;
+    }
 
     @Bean
     @Qualifier("tokenStore")

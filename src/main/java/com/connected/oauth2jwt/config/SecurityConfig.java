@@ -76,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/oauth/**").permitAll()
                 .antMatchers("/roles/**").hasRole(RoleName.ADMIN.name())
                 .antMatchers("/users/**").hasRole(RoleName.ADMIN.name())
-                .anyRequest().permitAll();
+                .anyRequest().denyAll();
 
         // disable page caching
         httpSecurity.headers().cacheControl();
