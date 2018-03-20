@@ -39,7 +39,7 @@ public class OAuth2Server extends AuthorizationServerConfigurerAdapter {
     }
 
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.tokenStore(tokenStore)
                 .tokenEnhancer(jwtAccessTokenConverter)
                 .authenticationManager(authenticationManager);

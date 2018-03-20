@@ -1,7 +1,6 @@
 package com.connected.oauth2jwt.config;
 
 
-import com.connected.oauth2jwt.domain.security.model.RoleName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +18,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 @Configuration
 @EnableResourceServer
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final AuthenticationEntryPointImpl unauthorizedHandler;
@@ -61,22 +59,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 
                 .authorizeRequests()
-                //.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
 
                 // allow anonymous resource requests
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/",
-                        "/*.html",
-                        "/favicon.ico",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js"
-                ).permitAll()
-                .antMatchers("/oauth/**").permitAll()
-                .antMatchers("/roles/**").hasRole(RoleName.ADMIN.name())
-                .antMatchers("/users/**").hasRole(RoleName.ADMIN.name())
-                .anyRequest().permitAll();
+//                .antMatchers(
+//                        HttpMethod.GET,
+//                        "/",
+//                        "/*.html",
+//                        "/favicon.ico",
+//                        "/**/*.html",
+//                        "/**/*.css",
+//                        "/**/*.js"
+//                ).permitAll()
+//                .antMatchers("/oauth/**").permitAll()
+//                .antMatchers("/roles/**").hasRole(RoleName.ADMIN.name())
+//                .antMatchers("/users/**").hasRole(RoleName.ADMIN.name())
+//                .anyRequest().permitAll();
 
         // disable page caching
         httpSecurity.headers().cacheControl();

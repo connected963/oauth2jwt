@@ -1,7 +1,7 @@
 package com.connected.oauth2jwt.security.infrastructure;
 
-import com.connected.oauth2jwt.domain.security.model.AuthorizedGrantTypeName;
-import com.connected.oauth2jwt.security.service.AuthorizedGrantTypeService;
+import com.connected.oauth2jwt.domain.security.model.authorizedgranttype.AuthorizedGrantTypeName;
+import com.connected.oauth2jwt.security.service.authorizedgranttype.AuthorizedGrantTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;

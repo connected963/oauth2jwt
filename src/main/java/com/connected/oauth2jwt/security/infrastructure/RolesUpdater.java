@@ -1,7 +1,7 @@
 package com.connected.oauth2jwt.security.infrastructure;
 
-import com.connected.oauth2jwt.domain.security.model.RoleName;
-import com.connected.oauth2jwt.security.service.RoleService;
+import com.connected.oauth2jwt.domain.security.model.role.RoleName;
+import com.connected.oauth2jwt.security.service.role.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
