@@ -1,13 +1,13 @@
 package com.connected.oauth2jwt.config;
 
 
+import com.connected.oauth2jwt.domain.security.model.role.RoleName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -59,22 +59,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
                 // allow anonymous resource requests
-//                .antMatchers(
-//                        HttpMethod.GET,
-//                        "/",
-//                        "/*.html",
-//                        "/favicon.ico",
-//                        "/**/*.html",
-//                        "/**/*.css",
-//                        "/**/*.js"
-//                ).permitAll()
-//                .antMatchers("/oauth/**").permitAll()
-//                .antMatchers("/roles/**").hasRole(RoleName.ADMIN.name())
-//                .antMatchers("/users/**").hasRole(RoleName.ADMIN.name())
-//                .anyRequest().permitAll();
+                .antMatchers(
+                        HttpMethod.GET,
+                        "/",
+                        "/*.html",
+                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js"
+                ).permitAll()
+                .antMatchers("/oauth/**").permitAll()
+                .antMatchers("/roles/**").hasRole(RoleName.ADMIN.name())
+                .antMatchers("/users/**").hasRole(RoleName.ADMIN.name())
+                .anyRequest().denyAll();
 
         // disable page caching
         httpSecurity.headers().cacheControl();
