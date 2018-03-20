@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @Primary
 @Service
-@Primary
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserService userService;
