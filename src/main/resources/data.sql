@@ -4,10 +4,10 @@ VALUES (nextval('users_id_seq'), 'oauth@oauth.com', 'oauth',
         '$2a$10$mARwXosX/D4e0aklW36fPOFjgZGaVhgrhTz69ZxMVSlJgxMcKfy2O', 'Oauth',
         '2', NOW(), '1997-03-26', TRUE, NOW());
 
-INSERT INTO roles (id, role)
-VALUES (nextval('roles_id_seq'), 'ADMIN');
+-- INSERT INTO roles (id, role)
+-- VALUES (nextval('roles_id_seq'), 'ADMIN');
 
-INSERT INTO user_role VALUES (currval('users_id_seq'), currval('roles_id_seq'));
+-- INSERT INTO user_role VALUES (currval('users_id_seq'), currval('roles_id_seq'));
 
 
 INSERT INTO clients_oauth (id, client_id, secret)

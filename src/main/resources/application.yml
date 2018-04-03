@@ -44,16 +44,10 @@ spring:
 
   #database connection configurations
   datasource:
-    url: "jdbc:postgresql://localhost/savemythings"
-    username: "postgres"
-    password: "postgres"
-    driver-class-name: "org.postgresql.Driver"
+    platform: "h2"
 
   #hibernate configurations
   jpa:
-    hibernate:
-      ddl-auto: "validate"
-    database-platform: "org.hibernate.dialect.PostgreSQLDialect"
     show-sql: "false"
 
 ---
@@ -63,14 +57,12 @@ spring:
 
   #database connection configurations
   datasource:
-    url: "jdbc:postgresql://localhost/savemythings"
-    username: "postgres"
-    password: "postgres"
-    driver-class-name: "org.postgresql.Driver"
+#    url: "jdbc:postgresql://localhost/test"
+#    username: "postgres"
+#    password: "postgres"
+#    driver-class-name: "org.postgresql.Driver"
+    plataform: "h2"
 
     #hibernate configurations
   jpa:
-    hibernate:
-      ddl-auto: "validate"
-    database-platform: "org.hibernate.dialect.PostgreSQLDialect"
     show-sql: "false"

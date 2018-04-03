@@ -23,6 +23,10 @@ public class AuthorizedGrantTypeOauth implements Serializable {
     @Column(name = "authorized_grant_type", nullable = false, length = 50)
     private AuthorizedGrantTypeName name;
 
+    protected AuthorizedGrantTypeOauth() {
+        //The framework requires this guy
+    }
+
     AuthorizedGrantTypeOauth(final AuthorizedGrantTypeName name) {
         Objects.requireNonNull(name, "Name can't be null");
         this.name = name;
